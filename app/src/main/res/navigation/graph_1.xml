@@ -14,6 +14,7 @@
             android:id="@+id/action_mainFragment_to_addMovieFragment"
             app:destination="@id/addMovieFragment"
             app:enterAnim="@android:anim/fade_in" />
+
     </fragment>
     <fragment
         android:id="@+id/addMovieFragment"
@@ -23,5 +24,14 @@
         <action
             android:id="@+id/action_addMovieFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="noro"
+            app:argType="string"
+            android:defaultValue="old" />
+        <argument
+            android:name="movieID"
+            app:argType="integer"
+            android:defaultValue="0" />
+
     </fragment>
 </navigation>

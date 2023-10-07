@@ -7,6 +7,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -33,12 +33,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.addMovie){
-            NavDirections navDirections= MainFragmentDirections.actionMainFragmentToAddMovieFragment();
-            Navigation.findNavController(this,R.id.fragmentContainerView).navigate(navDirections);
+            //NavDirections navDirections= MainFragmentDirections.actionMainFragmentToAddMovieFragment("new");
+            MainFragmentDirections.ActionMainFragmentToAddMovieFragment action=MainFragmentDirections.actionMainFragmentToAddMovieFragment();
+            action.setNoro("new");
+            Navigation.findNavController(this,R.id.fragmentContainerView).navigate(action);
         }
         return super.onOptionsItemSelected(item);
     }

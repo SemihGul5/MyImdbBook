@@ -7,10 +7,14 @@ import android.view.ViewGroup;
 import android.view.contentcapture.ContentCaptureCondition;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myimdbbook.R;
 import com.example.myimdbbook.databinding.RecycerListBinding;
 import com.example.myimdbbook.model.Movie;
+import com.example.myimdbbook.views.MainFragmentDirections;
 
 import java.util.ArrayList;
 
@@ -34,6 +38,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     public void onBindViewHolder(@NonNull MovieHolder holder, int position) {
         holder.binding.recyclerMovieNameText.setText(movieArrayList.get(position).getMovieName());
         holder.binding.recyclerScoreText.setText(movieArrayList.get(position).getScore());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainFragmentDirections.ActionMainFragmentToAddMovieFragment action=MainFragmentDirections.actionMainFragmentToAddMovieFragment();
+                action.setNoro("old");
+                action.setMovieID(movieArrayList.get(position).getId());
+                Navigation.findNavController(v).navigate(action);
+            }
+        });
 
     }
 
