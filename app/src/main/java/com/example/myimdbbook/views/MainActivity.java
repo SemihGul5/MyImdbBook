@@ -1,4 +1,4 @@
-package com.example.myimdbbook;
+package com.example.myimdbbook.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+
+import com.example.myimdbbook.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.addMovie){
-            NavDirections navDirections=MainFragmentDirections.actionMainFragmentToAddMovieFragment();
+            NavDirections navDirections= MainFragmentDirections.actionMainFragmentToAddMovieFragment();
             Navigation.findNavController(this,R.id.fragmentContainerView).navigate(navDirections);
         }
         return super.onOptionsItemSelected(item);
